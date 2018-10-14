@@ -1,0 +1,31 @@
+<mat-card>
+    <form (submit)="onAddProduct(productForm)" #productForm="ngForm">
+         <mat-form-field>
+        <input 
+        matInput 
+        type="text" 
+        name="name" 
+        required
+        placeholder="Product Title"
+        #title="ngModel"
+        [ngModel]="product?.name">
+        <mat-error *ngIf="title.invalid">Please enter a Product Title</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea 
+        matInput 
+        rows="4" 
+        name="content" 
+        placeholder="Product Content"
+        required
+        #content="ngModel"
+        [ngModel]="product?.content"></textarea>
+        <mat-error *ngIf="content.invalid">Please enter a Product Content</mat-error>
+    </mat-form-field>
+    <button
+     mat-raised-button
+    color="primary"
+    type="submit">Save Product</button>
+    </form>
+   
+</mat-card>
